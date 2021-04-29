@@ -1,14 +1,62 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html,
+body,
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #40423a;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+#drum-machine {
+  display: flex;
+  border: 1px solid #232928;
+  background-color: #c9d2a9;
+}
+
+#controls {
+  display: grid;
+  margin: 20px 20px 20px 0px;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 5px;
+  color: #232928;
+}
+
+#display {
+  display: grid;
+  align-items: center;
+  color: #232928;
+  border: 1px solid #232928;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+}
+
+#volume {
+  color: #40423a;
+}
+
+#drum-pads {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 325px;
+  margin: 20px;
+}
+
+.drum-pad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #232928;
+  border-radius: 5px;
+  background-color: #40423a;
+  color: #c9d2a9;
+  font-size: large;
+  font-weight: bold;
+  height: 80px;
+  width: 100px;
+  margin: 3px;
 }
