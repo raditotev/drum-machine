@@ -5,6 +5,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Slider from "@material-ui/core/Slider";
 import Switch from "@material-ui/core/Switch";
 import { bankOne, bankTwo } from "./banks";
+import { DrumPad } from "./components/drum-pad";
 
 const IOSSwitch = withStyles((theme) => ({
   root: {
@@ -58,31 +59,6 @@ const IOSSwitch = withStyles((theme) => ({
     />
   );
 });
-
-const DrumPad = ({ pad, state, setState }) => {
-  const { keyTrigger, id, url } = pad;
-  const { powerOn, volume } = state;
-
-  const handlePadClick = (event) => {
-    if (!powerOn) {
-      return;
-    }
-
-    const keyPad = event.target.querySelector("audio");
-    keyPad.volume = volume / 100;
-    keyPad.play();
-    setState({ display: id.replace(/-/gm, " ") });
-  };
-
-  return (
-    <div id={id} className="drum-pad" onClick={handlePadClick}>
-      {keyTrigger}
-      <audio id={keyTrigger} src={url} className="clip">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-  );
-};
 
 function App() {
   const initialState = {
@@ -178,7 +154,6 @@ function App() {
           />
           <div id="bank">
             <FormControlLabel
-              value="top"
               control={<Switch color="default" onClick={handleBankClick} />}
               label="Bank"
               labelPlacement="top"
