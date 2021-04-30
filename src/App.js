@@ -3,10 +3,10 @@ import React from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import { bankOne, bankTwo } from "./banks";
-import { DrumPad } from "./components/drum-pad";
 import { IOSSwitch } from "./components/ios-switch";
 import { Volume } from "./components/volume";
 import { Display } from "./components/display";
+import { Pads } from "./components/pads";
 
 function App() {
   const initialState = {
@@ -65,18 +65,7 @@ function App() {
   return (
     <div className="App" id="root">
       <div id="drum-machine">
-        <div id="drum-pads">
-          {bank.map((pad) => {
-            return (
-              <DrumPad
-                key={pad.keyCode}
-                pad={pad}
-                state={{ powerOn, volume }}
-                setState={setState}
-              />
-            );
-          })}
-        </div>
+        <Pads bank={bank} state={{ powerOn, volume }} setState={setState} />
         <div id="controls">
           <div id="power">
             <FormControlLabel
