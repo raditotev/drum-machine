@@ -1,11 +1,12 @@
 import React from "react";
 
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Slider from "@material-ui/core/Slider";
 import Switch from "@material-ui/core/Switch";
 import { bankOne, bankTwo } from "./banks";
 import { DrumPad } from "./components/drum-pad";
 import { IOSSwitch } from "./components/ios-switch";
+import { Volume } from "./components/volume";
+import { Display } from "./components/display";
 
 function App() {
   const initialState = {
@@ -90,15 +91,8 @@ function App() {
               labelPlacement="top"
             />
           </div>
-          <div id="display">{display}</div>
-          <Slider
-            id="volume"
-            min={0}
-            max={100}
-            value={volume}
-            onChange={handleVolumeChange}
-            aria-labelledby="continuous-slider"
-          />
+          <Display display={display} />
+          <Volume volume={volume} setVolume={handleVolumeChange} />
           <div id="bank">
             <FormControlLabel
               control={<Switch color="default" onClick={handleBankClick} />}
